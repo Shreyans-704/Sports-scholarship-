@@ -1,0 +1,77 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Professional gradient -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Subtle inner gradient -->
+    <radialGradient id="innerGradient" cx="50%" cy="30%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Text shadow filter -->
+    <filter id="textShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Main background with gradient -->
+  <circle cx="100" cy="100" r="95" fill="url(#mainGradient)" stroke="#0f172a" stroke-width="1"/>
+  <circle cx="100" cy="100" r="95" fill="url(#innerGradient)"/>
+  
+  <!-- Professional emblem container -->
+  <circle cx="100" cy="100" r="70" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.2"/>
+  
+  <!-- Refined engineering symbol -->
+  <g transform="translate(100,85)">
+    <!-- Main hexagon (industrial/engineering symbol) -->
+    <polygon points="0,-25 21.65,-12.5 21.65,12.5 0,25 -21.65,12.5 -21.65,-12.5" 
+             fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round"/>
+    
+    <!-- Inner precision elements -->
+    <circle r="12" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <circle r="4" fill="#ffffff"/>
+    
+    <!-- Technical measurement lines -->
+    <line x1="-30" y1="0" x2="-25" y2="0" stroke="#ffffff" stroke-width="1" opacity="0.7"/>
+    <line x1="25" y1="0" x2="30" y2="0" stroke="#ffffff" stroke-width="1" opacity="0.7"/>
+    <line x1="0" y1="-30" x2="0" y2="-25" stroke="#ffffff" stroke-width="1" opacity="0.7"/>
+  </g>
+  
+  <!-- Sophisticated book element -->
+  <g transform="translate(100,125)">
+    <!-- Book with depth -->
+    <path d="M -18,-8 L -18,12 L -1,10 L 1,10 L 18,12 L 18,-8 L 1,-6 L -1,-6 Z" 
+          fill="#ffffff" stroke="#e5e7eb" stroke-width="0.5"/>
+    <!-- Book spine -->
+    <line x1="0" y1="-6" x2="0" y2="10" stroke="#9ca3af" stroke-width="0.8"/>
+    <!-- Professional page lines -->
+    <line x1="-12" y1="-3" x2="-3" y2="-2" stroke="#6b7280" stroke-width="0.4"/>
+    <line x1="-12" y1="0" x2="-3" y2="1" stroke="#6b7280" stroke-width="0.4"/>
+    <line x1="-12" y1="3" x2="-3" y2="4" stroke="#6b7280" stroke-width="0.4"/>
+    <line x1="3" y1="-2" x2="12" y2="-3" stroke="#6b7280" stroke-width="0.4"/>
+    <line x1="3" y1="1" x2="12" y2="0" stroke="#6b7280" stroke-width="0.4"/>
+    <line x1="3" y1="4" x2="12" y2="3" stroke="#6b7280" stroke-width="0.4"/>
+  </g>
+  
+  <!-- Professional typography -->
+  <text x="100" y="50" text-anchor="middle" fill="#ffffff" 
+        font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" 
+        letter-spacing="2px" filter="url(#textShadow)">EIL</text>
+  
+  <text x="100" y="170" text-anchor="middle" fill="#ffffff" 
+        font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" 
+        letter-spacing="3px" opacity="0.9">SCHOLAR</text>
+  
+  <!-- Subtle corner accents -->
+  <circle cx="40" cy="40" r="1" fill="#ffffff" opacity="0.4"/>
+  <circle cx="160" cy="40" r="1" fill="#ffffff" opacity="0.4"/>
+  <circle cx="40" cy="160" r="1" fill="#ffffff" opacity="0.4"/>
+  <circle cx="160" cy="160" r="1" fill="#ffffff" opacity="0.4"/>
+  
+  <!-- Professional border accent -->
+  <circle cx="100" cy="100" r="93" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+</svg>
