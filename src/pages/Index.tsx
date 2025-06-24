@@ -217,7 +217,7 @@ const Index = () => {
                 size="lg"
                 variant="secondary"
                 asChild
-                className="bg-white text-primary hover:bg-gray-100"
+                className="bg-black text-primary hover:bg-gray-100"
               >
                 <Link to="/apply">
                   Apply Now <ArrowRight className="ml-2 h-4 w-4" />
