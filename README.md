@@ -8,6 +8,8 @@ The **Sports Scholarship App** is a web-based platform built with **Vite**, **Re
 
 ## 🚀 Features
 --test
+
+testing the gh
 * 🎯 Student registration and login
 * 📝 Scholarship application form
 * 🏅 Admin dashboard to verify applicants
