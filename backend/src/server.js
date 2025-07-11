@@ -17,13 +17,26 @@ const app = express();
 // Body parser
 app.use(express.json());
 
-// Enable CORS with more permissive settings for development
+// Enable CORS with more permissive settings for production
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:8081', 'http://localhost:8080','http://127.0.0.1:8081'],
+  origin: [
+    'https://sports-scholarship-6olq.vercel.app',
+    'https://sports-scholarship.vercel.app', 
+    'http://localhost:5173', 
+    'http://127.0.0.1:5173', 
+    'http://localhost:8081', 
+    'http://localhost:8080',
+    'http://127.0.0.1:8081'
+  ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept']
 }));
+
+// Add health check endpoint for API testing
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok', message: 'API is running' });
+});
 
 // Mount routers
 app.use('/api/auth', authRoutes);

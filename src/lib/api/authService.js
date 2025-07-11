@@ -2,8 +2,8 @@
 
 // Try multiple possible server URLs
 const API_URLS = [
-  'http://localhost:7777/api/auth',
-  'http://127.0.0.1:7777/api/auth'
+  'https://sports-scholarship.onrender.com/api/auth',
+  'http://localhost:7777/api/auth'
 ];
 
 // Function to test which server is responding
@@ -18,11 +18,13 @@ async function findWorkingServer() {
         headers: {
           'Accept': 'application/json'
         },
-        timeout: 2000 
+        timeout: 5000 
       });
       
       if (response.ok) {
         console.log(`Server at ${url} is responding!`);
+        // Save the working URL to localStorage for other services to use
+        localStorage.setItem('api_base_url', url);
         return url;
       } else {
         console.log(`Server at ${url} responded with status: ${response.status}`);
@@ -31,19 +33,21 @@ async function findWorkingServer() {
       console.log(`Server at ${url} is not responding: ${error.message}`);
     }
   }
-  // Default to the first URL if none are working
-  console.log('No servers responding, using default URL');
+  // Default to the production URL if none are working
+  console.log('No servers responding, using production URL');
+  localStorage.setItem('api_base_url', API_URLS[0]);
   return API_URLS[0];
 }
 
 // Initial API instance
 const api = axios.create({
-  baseURL: API_URLS[0],
+  baseURL: API_URLS[0], // Default to production URL first
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
   },
   timeout: 10000, // 10 second timeout
-  withCredentials: false // Changed to false for '*' origin CORS
+  withCredentials: false // Needed for cross-origin requests
 });
 
 // Check server connection on module load

@@ -1,19 +1,40 @@
 import axios from 'axios';
 
-// API URL with port 7777 as specified in the backend config.js
-const API_URL = 'http://localhost:7777/api/applications';
+// Try multiple possible server URLs
+const API_URLS = [
+  'https://sports-scholarship.onrender.com/api/applications',
+  'http://localhost:7777/api/applications'
+];
+
+// Find API base URL by checking auth service first
+const getApiBaseUrl = () => {
+  // Try to get the auth service base URL from localStorage
+  const authBaseUrl = localStorage.getItem('api_base_url');
+  
+  if (authBaseUrl) {
+    // Replace auth path with applications path
+    return authBaseUrl.replace('/api/auth', '/api/applications');
+  }
+  
+  // Default to production URL
+  return API_URLS[0];
+};
 
 // Create axios instance with base config
 const api = axios.create({
-  baseURL: API_URL,
+  baseURL: getApiBaseUrl(),
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
   }
 });
 
 // Add token to request if available
 api.interceptors.request.use(
   (config) => {
+    // Update baseURL on each request in case it changed
+    config.baseURL = getApiBaseUrl();
+    
     const token = localStorage.getItem('auth_token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
@@ -107,7 +128,8 @@ const uploadDocuments = async (applicationId, documents, documentType = 'support
     console.log('FormData created with documentType:', documentType);
     
     // Use fetch API instead of axios for better FormData support
-    const url = `${API_URL}/${applicationId}/documents`;
+    const baseUrl = getApiBaseUrl();
+    const url = `${baseUrl}/${applicationId}/documents`;
     console.log(`Making request to: ${url}`);
     
     const response = await fetch(url, {
