@@ -66,8 +66,7 @@ const SignUpModal = ({
     "1st Year",
     "2nd Year", 
     "3rd Year",
-    "4th Year",
-    "Graduated"
+    "4th Year"
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -140,7 +139,7 @@ const SignUpModal = ({
             Create an Account
           </DialogTitle>
           <DialogDescription className="text-center">
-            Sign up for an EIL Scholar account to apply for engineering scholarships
+            Sign up for an EIL Scholar account to apply for sports scholarships
           </DialogDescription>
         </DialogHeader>
 

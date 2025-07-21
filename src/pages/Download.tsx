@@ -23,6 +23,22 @@ const Download = () => {
       const formData = savedFormData ? JSON.parse(savedFormData) : {};
 
       const pdf = new jsPDF();
+      // Function to draw border on a given page
+      const drawBorder = () => {
+        const width = pdf.internal.pageSize.getWidth();
+        const height = pdf.internal.pageSize.getHeight();
+
+        // Outer Black Border
+        pdf.setDrawColor(0); // Black
+        pdf.setLineWidth(1.5);
+        pdf.rect(5, 5, width - 10, height - 10);
+
+        // Inner Blue Border
+        pdf.setDrawColor(0, 0, 255); // RGB Blue
+        pdf.setLineWidth(0.75);
+        pdf.rect(10, 10, width - 20, height - 20);
+      };
+      drawBorder(); // draw border on first page
       const pageWidth = pdf.internal.pageSize.getWidth();
       const margin = 20;
       let yPosition = margin;
@@ -91,6 +107,7 @@ const Download = () => {
       // Academic Information Section
       if (yPosition > pdf.internal.pageSize.getHeight() - 60) {
         pdf.addPage();
+        drawBorder(); // draw border on new page
         yPosition = margin;
       }
 
@@ -124,6 +141,7 @@ const Download = () => {
       // Engineering Information Section
       if (yPosition > pdf.internal.pageSize.getHeight() - 60) {
         pdf.addPage();
+        drawBorder(); // draw border on new page
         yPosition = margin;
       }
 

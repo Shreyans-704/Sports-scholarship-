@@ -100,7 +100,7 @@ const SignInModal = ({
             Welcome Back
           </DialogTitle>
           <DialogDescription className="text-center">
-            Sign in to your EIL Scholar account to continue your engineering
+            Sign in to your EIL Scholar account to continue your sports
             journey
           </DialogDescription>
         </DialogHeader>
