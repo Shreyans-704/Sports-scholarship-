@@ -2,6 +2,7 @@
 
 The **Sports Scholarship App** is a web-based platform built with **Vite**, **React**, and **TypeScript** to manage and distribute scholarships to students with exceptional talent in sports — especially those who have played at national or state levels.
 
+<img width="1896" height="839" alt="image" src="https://github.com/user-attachments/assets/fca459f3-a797-40aa-bee5-bdd6f8be56a0" />
 
 # 🚀 Features
 
